@@ -15,9 +15,5 @@ func DocRefFieldsExists(dr *elasticseach.DocRef) error {
 		return errors.BadRequest("go.micro.srv.elasticsearch", "Type required")
 	}
 
-	if len(dr.Id) <= 0 {
-		return errors.BadRequest("go.micro.srv.elasticsearch", "Id required")
-	}
-
 	return nil
 }
