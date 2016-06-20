@@ -2,9 +2,10 @@
 
 Elasticsearch service with fqdn go.micro.srv.elasticsearch
 
-Flag API with fqdn go.micro.api.elasticsearch
+Elasticsearch API with fqdn go.micro.api.elasticsearch
 
-Perform CRUD, search and queryDSL operation within elastic search.
+
+Perform agnostic CRUD, search and queryDSL operation within elastic search.
 
 ## Getting Started
 
@@ -44,4 +45,6 @@ docker-compose -f docker-compose-build.yml up
 
 
 ## Usage
-TODO
+[API](https://github.com/Rakanixu/elasticsearch/tree/master/api)
+
+[Microservice](https://github.com/Rakanixu/elasticsearch/tree/master/srv)

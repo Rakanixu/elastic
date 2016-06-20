@@ -1,6 +1,6 @@
 # Elasticsearch API
 
-This is the Elasticsearch API with fqdn go.micro.api.elasticsearch.
+This is the Elasticsearch API for consuming elascticsearch service through HTTP.
 
 ## Getting Started
 
@@ -43,7 +43,7 @@ http[domain:micro API port]/elasticsearch/create
 {}
 ```
 
-### READ
+### Read
 ```
 http[domain:micro API port]/elasticsearch/read
 {
@@ -62,7 +62,7 @@ http[domain:micro API port]/elasticsearch/read
 }
 ```
 
-### UPDATE
+### Update
 ```
 http[domain:micro API port]/elasticsearch/update
 {
