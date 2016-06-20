@@ -32,13 +32,9 @@ micro query go.micro.srv.elasticsearch Elasticsearch.Create '{"index":"flags", "
 ```
 micro query go.micro.srv.elasticsearch Elasticsearch.Read '{"index":"flags", "type": "flag", "id": "flag-id"}'
 {
-	"record": {
-		"index": "flags",
-		"type": "flag",
-		"id": "flag-id",
-		"data": "{\"att1\": \"value1\", \"bool\": false, \"innerobj\":{\"attr1\": 46,\"bool\": true}}"
-	}
+	"result": "{\"att1\": \"value1\", \"bool\": false, \"innerobj\":{\"attr1\": 46,\"bool\": true}}"
 }
+
 ```
 
 ### Update
@@ -56,7 +52,7 @@ micro query go.micro.srv.elasticsearch Elasticsearch.Delete '{"index":"flags", "
 
 ### Search
 ```
-micro query go.micro.srv.elasticsearch Elasticsearch.Search '{"index":"flags", "type": "flag", "query": "*", "limit": 20, "offset": 0}'
+micro query go.micro.srv.elasticsearch Elasticsearch.Search '{"index":"flags", "type": "flag", "query": "yy", "limit": 20, "offset": 0}'
 {
 	"result": "{\"took\":1,\"timed_out\":false,\"_shards\":{\"total\":5,\"successful\":5,\"failed\":0},\"hits\":{\"total\":4,\"max_score\":1.0,\"hits\":[{\"_index\":\"flags\",\"_type\":\"flag\",\"_id\":\"flag-27\",\"_score\":1.0,\"_source\":{\"fieldY\": \"yy\", \"bb\": false, \"obj\":{\"obj2\": 46}}},{\"_index\":\"flags\",\"_type\":\"flag\",\"_id\":\"flag-25\",\"_score\":1.0,\"_source\":{\"fieldY\": \"aa\", \"bb\": true, \"obj\":{\"obj1\": 44}}},{\"_index\":\"flags\",\"_type\":\"flag\",\"_id\":\"flag-31\",\"_score\":1.0,\"_source\":{\"fieldY\": \"yyt\", \"bb\": false, \"obj\":{\"obj2\": 46,\"obj55\": 66666666666666}}},{\"_index\":\"flags\",\"_type\":\"flag\",\"_id\":\"flag-30\",\"_score\":1.0,\"_source\":{\"fieldY\": \"yy\", \"bb\": false, \"obj\":{\"obj2\": 46,\"obj1\": 6666666666666666666}}}]}}"
 }

@@ -1,30 +1,25 @@
 package main
 
 import (
-	"log"
-
-	"/client"
-	"/handler"
+	"github.com/Rakanixu/elasticsearch/api/handler"
 	"github.com/micro/go-micro"
-
-	example "/proto/example"
+	"log"
 )
 
 func main() {
 	// New Service
 	service := micro.NewService(
-		micro.Name("go.micro.api.api"),
+		micro.Name("go.micro.api.elasticsearch"),
 		micro.Version("latest"),
 	)
 
 	// Register Handler
-	example.RegisterExampleHandler(service.Server(), new(handler.Example))
+	service.Server().Handle(
+		service.Server().NewHandler(new(handler.Elasticsearch)),
+	)
 
 	// Initialise service
-	service.Init(
-		// create wrap for the Example srv client
-		micro.WrapHandler(client.ExampleWrapper(service)),
-	)
+	service.Init()
 
 	// Run service
 	if err := service.Run(); err != nil {

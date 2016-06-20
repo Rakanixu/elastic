@@ -65,8 +65,8 @@ message SearchRequest {
   string index = 1;
   string type = 2;
   string query = 3;
-  uint64 limit = 4;
-  uint64 offset = 5;
+  int64 limit = 4;
+  int64 offset = 5;
 }
 
 message SearchResponse {

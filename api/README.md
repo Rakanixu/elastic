@@ -1,6 +1,6 @@
 # Elasticsearch API
 
-This is the Elasticsearch API with fqdn go.micro.api.elasticsearch
+This is the Elasticsearch API with fqdn go.micro.api.elasticsearch.
 
 ## Getting Started
 
@@ -18,4 +18,190 @@ $ consul agent -dev -advertise=127.0.0.1
 
 ```
 $ go run main.go
+```
+
+
+## Usage 
+
+### Create
+```
+http[domain:micro API port]/elasticsearch/create
+{
+    "index":"flags", 
+    "type": "flag", 
+    "id": "flag-id", 
+    "data":  {
+        "att1": "value1", 
+        "bool": false, 
+        "innerobj": {
+            "attr1": 46,
+            "bool": true
+        }
+    }
+}
+
+{}
+```
+
+### READ
+```
+http[domain:micro API port]/elasticsearch/read
+{
+    "index":"flags", 
+    "type": "flag", 
+    "id": "flag-id"
+}
+
+{
+  "att1": "value1",
+  "bool": false,
+  "innerobj": {
+    "attr1": 46,
+    "bool": true
+  }
+}
+```
+
+### UPDATE
+```
+http[domain:micro API port]/elasticsearch/update
+{
+    "index":"flags", 
+    "type": "flag", 
+    "id": "flag-id",
+    "data":  {
+        "update": true,
+        "att1": "value1", 
+        "bool": false, 
+        "innerobj": {
+            "attr1": 46,
+            "bool": true
+        }
+    }
+}
+
+{
+    "update": true,
+    "att1": "value1", 
+    "bool": false, 
+    "innerobj": {
+        "attr1": 46,
+        "bool": true
+    }
+}
+```
+
+### Delete
+```
+http[domain:micro API port]/elasticsearch/delete
+{
+    "index":"flags", 
+    "type": "flag", 
+    "id": "flag-id"
+}
+
+{}
+```
+
+### Search
+```
+http[domain:micro API port]/elasticsearch/search
+{
+    "index":"flags", 
+    "type": "flag", 
+    "query":"47", 
+    "limit": 20, 
+    "offset": 0
+}
+
+{
+  "took": 1,
+  "timed_out": false,
+  "_shards": {
+    "total": 5,
+    "successful": 5,
+    "failed": 0
+  },
+  "hits": {
+    "total": 1,
+    "max_score": 0.19178301,
+    "hits": [
+      {
+        "_index": "flags",
+        "_type": "flag",
+        "_id": "flag-id3",
+        "_score": 0.19178301,
+        "_source": {
+          "att1": "value2",
+          "bool": false,
+          "innerobj": {
+            "attr1": 47,
+            "bool": true
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+### Query
+```
+http[domain:micro API port]/elasticsearch/query
+{
+    "index":"flags", 
+    "type": "flag", 
+    "query": {
+        "query": { 
+            "match" : {
+                "att1" : "value2"
+            }
+        }
+    }
+}
+
+{
+  "took": 1,
+  "timed_out": false,
+  "_shards": {
+    "total": 5,
+    "successful": 5,
+    "failed": 0
+  },
+  "hits": {
+    "total": 2,
+    "max_score": 0.30685282,
+    "hits": [
+      {
+        "_index": "flags",
+        "_type": "flag",
+        "_id": "flag-id2",
+        "_score": 0.30685282,
+        "_source": {
+          "att1": "value2",
+          "bool": false,
+          "innerobj": {
+            "attr1": 48,
+            "bool": true
+          },
+          "update": true
+        }
+      },
+      {
+        "_index": "flags",
+        "_type": "flag",
+        "_id": "flag-id3",
+        "_score": 0.30685282,
+        "_source": {
+          "att1": "value2",
+          "bool": false,
+          "innerobj": {
+            "attr1": 47,
+            "bool": true
+          }
+        }
+      }
+    ]
+  }
+}
 ```
