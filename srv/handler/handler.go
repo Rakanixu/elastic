@@ -14,11 +14,11 @@ type Elasticsearch struct{}
 func (es *Elasticsearch) Create(ctx context.Context, req *elasticseach.CreateRequest, rsp *elasticseach.CreateResponse) error {
 	var err error
 
-	if req.Record == nil {
-		return errors.BadRequest("go.micro.srv.elasticsearch.Elasticsearch.Create", "Record required")
-	}
-
-	if err = RequiredRecordFieldsExists(req.Record); err != nil {
+	if err = DocRefFieldsExists(&elasticseach.DocRef{
+		Index: req.Index,
+		Type:  req.Type,
+		Id:    req.Id,
+	}); err != nil {
 		return err
 	}
 
@@ -33,12 +33,11 @@ func (es *Elasticsearch) Create(ctx context.Context, req *elasticseach.CreateReq
 func (es *Elasticsearch) Read(ctx context.Context, req *elasticseach.ReadRequest, rsp *elasticseach.ReadResponse) error {
 	var err error
 
-	rHelper := &elasticseach.Record{
+	if err = DocRefFieldsExists(&elasticseach.DocRef{
 		Index: req.Index,
 		Type:  req.Type,
 		Id:    req.Id,
-	}
-	if err = RequiredRecordFieldsExists(rHelper); err != nil {
+	}); err != nil {
 		return err
 	}
 
@@ -47,7 +46,7 @@ func (es *Elasticsearch) Read(ctx context.Context, req *elasticseach.ReadRequest
 		return errors.InternalServerError("go.micro.srv.elasticsearch.Elasticsearch.Read", err.Error())
 	}
 
-	rsp.Record = record
+	rsp.Result = record
 
 	return nil
 }
@@ -56,11 +55,11 @@ func (es *Elasticsearch) Read(ctx context.Context, req *elasticseach.ReadRequest
 func (es *Elasticsearch) Update(ctx context.Context, req *elasticseach.UpdateRequest, rsp *elasticseach.UpdateResponse) error {
 	var err error
 
-	if req.Record == nil {
-		return errors.BadRequest("go.micro.srv.elasticsearch.Elasticsearch.Update", "Record required")
-	}
-
-	if err = RequiredRecordFieldsExists(req.Record); err != nil {
+	if err = DocRefFieldsExists(&elasticseach.DocRef{
+		Id:    req.Id,
+		Index: req.Index,
+		Type:  req.Type,
+	}); err != nil {
 		return err
 	}
 
@@ -75,12 +74,11 @@ func (es *Elasticsearch) Update(ctx context.Context, req *elasticseach.UpdateReq
 func (es *Elasticsearch) Delete(ctx context.Context, req *elasticseach.DeleteRequest, rsp *elasticseach.DeleteResponse) error {
 	var err error
 
-	rHelper := &elasticseach.Record{
+	if err = DocRefFieldsExists(&elasticseach.DocRef{
 		Index: req.Index,
 		Type:  req.Type,
 		Id:    req.Id,
-	}
-	if err = RequiredRecordFieldsExists(rHelper); err != nil {
+	}); err != nil {
 		return err
 	}
 

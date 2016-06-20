@@ -13,16 +13,17 @@ service Elasticsearch {
   rpc Query(QueryRequest) returns (QueryResponse) {}
 }
 
-message Record {
+message DocRef {
+  string index = 1;
+  string type = 2;
+	string id = 3;
+}
+
+message CreateRequest {
   string index = 1;
   string type = 2;
 	string id = 3;
 	string data = 4;
-}
-
-
-message CreateRequest {
-	Record record = 1;
 }
 
 message CreateResponse {
@@ -36,11 +37,14 @@ message ReadRequest {
 }
 
 message ReadResponse {
-  Record record = 1;
+  string result = 1;
 }
 
 message UpdateRequest {
-	Record record = 1;
+  string index = 1;
+  string type = 2;
+	string id = 3;
+	string data = 4;
 }
 
 message UpdateResponse {

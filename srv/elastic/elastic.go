@@ -21,33 +21,26 @@ func Init() {
 
 // Create record
 func Create(cr *elasticsearch.CreateRequest) error {
-	_, err := conn.Index(cr.Record.Index, cr.Record.Type, cr.Record.Id, nil, cr.Record.Data)
+	_, err := conn.Index(cr.Index, cr.Type, cr.Id, nil, cr.Data)
 
 	return err
 }
 
 // Read record
-func Read(rr *elasticsearch.ReadRequest) (*elasticsearch.Record, error) {
+func Read(rr *elasticsearch.ReadRequest) (string, error) {
 	r, err := conn.Get(rr.Index, rr.Type, rr.Id, nil)
 	if err != nil {
-		return nil, err
-	}
-
-	record := &elasticsearch.Record{
-		Index: rr.Index,
-		Type:  rr.Type,
-		Id:    rr.Id,
+		return "", err
 	}
 
 	data, _ := r.Source.MarshalJSON()
-	record.Data = string(data)
 
-	return record, nil
+	return string(data), nil
 }
 
 // Update record
 func Update(ur *elasticsearch.UpdateRequest) error {
-	_, err := conn.Index(ur.Record.Index, ur.Record.Type, ur.Record.Id, nil, ur.Record.Data)
+	_, err := conn.Index(ur.Index, ur.Type, ur.Id, nil, ur.Data)
 
 	return err
 }

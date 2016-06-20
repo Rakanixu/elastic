@@ -5,17 +5,17 @@ import (
 	"github.com/micro/go-micro/errors"
 )
 
-// RequiredRecordFieldsExists returns an error if required fields has zero value
-func RequiredRecordFieldsExists(r *elasticseach.Record) error {
-	if len(r.Index) <= 0 {
+// RequiredRecordFieldsExists returns an error if DocRef struct has zero value
+func DocRefFieldsExists(dr *elasticseach.DocRef) error {
+	if len(dr.Index) <= 0 {
 		return errors.BadRequest("go.micro.srv.elasticsearch", "Index required")
 	}
 
-	if len(r.Type) <= 0 {
+	if len(dr.Type) <= 0 {
 		return errors.BadRequest("go.micro.srv.elasticsearch", "Type required")
 	}
 
-	if len(r.Id) <= 0 {
+	if len(dr.Id) <= 0 {
 		return errors.BadRequest("go.micro.srv.elasticsearch", "Id required")
 	}
 

@@ -24,7 +24,7 @@ $ go run main.go
 
 ### Create
 ```
-micro query go.micro.srv.elasticsearch Elasticsearch.Create '{"record" : {"index":"flags", "type": "flag", "id": "flag-id", "data":  "{\"att1\": \"value1\", \"bool\": false, \"innerobj\":{\"attr1\": 46,\"bool\": true}}"}}'
+micro query go.micro.srv.elasticsearch Elasticsearch.Create '{"index":"flags", "type": "flag", "id": "flag-id", "data":  "{\"att1\": \"value1\", \"bool\": false, \"innerobj\":{\"attr1\": 46,\"bool\": true}}"}'
 {}
 ```
 
@@ -43,7 +43,7 @@ micro query go.micro.srv.elasticsearch Elasticsearch.Read '{"index":"flags", "ty
 
 ### Update
 ```
-micro query go.micro.srv.elasticsearch Elasticsearch.Update '{"record" : {"index":"flags", "type": "flag", "id": "flag-id", "data":  "{\"att1\": \"new value1\", \"bool\": false, \"innerobj\":{\"attr1\": 46,\"bool\": true}}"}}'
+micro query go.micro.srv.elasticsearch Elasticsearch.Update '{"index":"flags", "type": "flag", "id": "flag-id", "data":  "{\"att1\": \"new value1\", \"bool\": false, \"innerobj\":{\"attr1\": 46,\"bool\": true}}"}'
 {}
 ```
 
