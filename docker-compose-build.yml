@@ -28,14 +28,14 @@ web:
   - "8082:8082"
 
 elasticsearch-api:
-  container_name: flag-api
+  container_name: elasticsearch-api
   command: --registry_address=registry:8500
   build: api
   links:
     - consul
 
 elasticsearch-srv:
-  container_name: flag-srv
+  container_name: elasticsearch-srv
   command: --registry_address=registry:8500 --elasticsearch_hosts=elasticsearch:9200
   build: srv
   links:

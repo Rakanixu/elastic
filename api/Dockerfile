@@ -1,3 +1,3 @@
 FROM scratch
-ADD . /api
+ADD api /
 ENTRYPOINT [ "/api" ]

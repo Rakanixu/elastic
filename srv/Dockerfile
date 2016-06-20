@@ -1,3 +1,3 @@
 FROM scratch
-ADD . /srv
+ADD srv /
 ENTRYPOINT [ "/srv" ]
