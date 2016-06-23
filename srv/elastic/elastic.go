@@ -8,9 +8,11 @@ import (
 )
 
 var (
-	ErrNotFound = errors.New("flag not found")
-	Hosts       []string
-	conn        *lib.Conn
+	// ErrNotFound error
+	ErrNotFound = errors.New("not found")
+	// Hosts elasticsearch
+	Hosts []string
+	conn  *lib.Conn
 )
 
 // Init ES connection
