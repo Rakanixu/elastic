@@ -1,12 +1,13 @@
 package main
 
 import (
-	"github.com/Rakanixu/elasticsearch/srv/elastic"
-	"github.com/Rakanixu/elasticsearch/srv/handler"
-	"github.com/micro/cli"
-	"github.com/micro/go-micro"
 	"log"
 	"strings"
+
+	"github.com/kazoup/elastic/srv/elastic"
+	"github.com/kazoup/elastic/srv/handler"
+	"github.com/micro/cli"
+	"github.com/micro/go-micro"
 )
 
 func main() {

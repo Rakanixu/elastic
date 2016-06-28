@@ -1,8 +1,8 @@
 package handler
 
 import (
-	"github.com/Rakanixu/elasticsearch/srv/elastic"
-	elasticseach "github.com/Rakanixu/elasticsearch/srv/proto/elasticsearch"
+	"github.com/kazoup/elastic/srv/elastic"
+	elasticseach "github.com/kazoup/elastic/srv/proto/elasticsearch"
 	"github.com/micro/go-micro/errors"
 	"golang.org/x/net/context"
 )

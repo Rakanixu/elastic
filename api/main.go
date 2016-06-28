@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/Rakanixu/elasticsearch/api/handler"
-	"github.com/micro/go-micro"
 	"log"
+
+	"github.com/kazoup/elastic/api/handler"
+	"github.com/micro/go-micro"
 )
 
 func main() {

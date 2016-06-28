@@ -3,7 +3,8 @@ package elastic
 import (
 	"errors"
 	"fmt"
-	elasticsearch "github.com/Rakanixu/elasticsearch/srv/proto/elasticsearch"
+
+	elasticsearch "github.com/kazoup/elastic/srv/proto/elasticsearch"
 	lib "github.com/mattbaird/elastigo/lib"
 )
 

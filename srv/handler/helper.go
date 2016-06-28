@@ -1,7 +1,7 @@
 package handler
 
 import (
-	elasticseach "github.com/Rakanixu/elasticsearch/srv/proto/elasticsearch"
+	elasticseach "github.com/kazoup/elastic/srv/proto/elasticsearch"
 	"github.com/micro/go-micro/errors"
 )
 
