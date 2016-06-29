@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 	elastic "github.com/Rakanixu/elasticsearch/srv/proto/elasticsearch"
-	"github.com/Rakanixu/micro/api/proto"
 	"github.com/micro/go-micro/client"
 	"github.com/micro/go-micro/errors"
+	api "github.com/micro/micro/api/proto"
 	"golang.org/x/net/context"
 	"net/http"
 )
