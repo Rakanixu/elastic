@@ -10,7 +10,7 @@ import (
 func main() {
 	// New Service
 	service := micro.NewService(
-		micro.Name("go.micro.api.elasticsearch"),
+		micro.Name("go.micro.api.elastic"),
 		micro.Version("latest"),
 	)
 

@@ -13,7 +13,7 @@ import (
 func main() {
 	// New Service
 	service := micro.NewService(
-		micro.Name("go.micro.srv.elasticsearch"),
+		micro.Name("go.micro.srv.elastic"),
 		micro.Version("latest"),
 		micro.Flags(
 			cli.StringFlag{
