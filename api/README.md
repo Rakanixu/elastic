@@ -25,7 +25,7 @@ $ go run main.go
 
 ### Create
 ```
-http[domain:micro API port]/elasticsearch/create
+http[domain:micro API port]/elastic/create
 {
     "index":"flags", 
     "type": "flag", 
@@ -45,7 +45,7 @@ http[domain:micro API port]/elasticsearch/create
 
 ### Read
 ```
-http[domain:micro API port]/elasticsearch/read
+http[domain:micro API port]/elastic/read
 {
     "index":"flags", 
     "type": "flag", 
@@ -64,7 +64,7 @@ http[domain:micro API port]/elasticsearch/read
 
 ### Update
 ```
-http[domain:micro API port]/elasticsearch/update
+http[domain:micro API port]/elastic/update
 {
     "index":"flags", 
     "type": "flag", 
@@ -93,7 +93,7 @@ http[domain:micro API port]/elasticsearch/update
 
 ### Delete
 ```
-http[domain:micro API port]/elasticsearch/delete
+http[domain:micro API port]/elastic/delete
 {
     "index":"flags", 
     "type": "flag", 
@@ -105,7 +105,7 @@ http[domain:micro API port]/elasticsearch/delete
 
 ### Search
 ```
-http[domain:micro API port]/elasticsearch/search
+http[domain:micro API port]/elastic/search
 {
     "index":"flags", 
     "type": "flag", 
@@ -147,7 +147,7 @@ http[domain:micro API port]/elasticsearch/search
 
 ### Query
 ```
-http[domain:micro API port]/elasticsearch/query
+http[domain:micro API port]/elastic/query
 {
     "index":"flags", 
     "type": "flag", 

@@ -31,7 +31,7 @@ func main() {
 
 	// Register Handler
 	service.Server().Handle(
-		service.Server().NewHandler(new(handler.Elasticsearch)),
+		service.Server().NewHandler(new(handler.Elastic)),
 	)
 
 	// Initialise service
