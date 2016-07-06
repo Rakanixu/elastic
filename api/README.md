@@ -1,6 +1,6 @@
-# Elasticsearch API [![GoDoc](https://godoc.org/github.com/Rakanixu/elasticsearch/api?status.svg)](https://godoc.org/github.com/Rakanixu/elasticsearch/api)
+# Elastic API [![GoDoc](https://godoc.org/github.com/Rakanixu/elastic/api?status.svg)](https://godoc.org/github.com/Rakanixu/elastic/api)
 
-This is the Elasticsearch API for consuming elascticsearch service through HTTP.
+This is the Elastic API for consuming elascticsearch service through HTTP.
 
 ## Getting Started
 

@@ -1,6 +1,6 @@
-# Elasticsearch service [![GoDoc](https://godoc.org/github.com/Rakanixu/elasticsearch/srv?status.svg)](https://godoc.org/github.com/Rakanixu/elasticsearch/srv)
+# Elastic service [![GoDoc](https://godoc.org/github.com/Rakanixu/elastic/srv?status.svg)](https://godoc.org/github.com/Rakanixu/elastic/srv)
 
-This is the elasticsearch service performing CRUD, Search and QueryDSL operations for Elasticsearch DB.
+This is the elastic service performing CRUD, Search and QueryDSL operations for Elasticsearch DB.
 
 ## Getting Started
 

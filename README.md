@@ -1,11 +1,10 @@
-# Elasticsearch [![License](https://img.shields.io/:license-apache-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Go Report Card](https://goreportcard.com/badge/Rakanixu/elasticsearch)](https://goreportcard.com/report/github.com/Rakanixu/elasticsearch)
+# Elastic [![License](https://img.shields.io/:license-apache-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Go Report Card](https://goreportcard.com/badge/Rakanixu/elastic)](https://goreportcard.com/report/github.com/Rakanixu/elastic)
 
-Elasticsearch service with fqdn go.micro.srv.elasticsearch
+Elastic service with fqdn go.micro.srv.elastic
 
-Elasticsearch API with fqdn go.micro.api.elasticsearch
+Elastic API with fqdn go.micro.api.elastic
 
-
-Perform agnostic CRUD, search and queryDSL operation within elastic search.
+Perform agnostic CRUD, search and queryDSL operation within elasticsearch.
 
 ## Getting Started
 
@@ -50,6 +49,6 @@ docker-compose -f docker-compose-build.yml up
 
 
 ## Usage
-[API](https://github.com/Rakanixu/elasticsearch/tree/master/api)
+[API](https://github.com/Rakanixu/elastic/tree/master/api)
 
-[Microservice](https://github.com/Rakanixu/elasticsearch/tree/master/srv)
+[Microservice](https://github.com/Rakanixu/elastic/tree/master/srv)
