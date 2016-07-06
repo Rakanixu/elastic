@@ -1,16 +1,10 @@
-default: build-docker
+default: dependencies build
 
-install:
-	go install
-
-clean:
-	go clean
-
-build-docker:
+dependencies:
+	go get -t -d -v ./...
+build:
 	cd srv && make && cd ..
 	cd api && make && cd ..
-	docker-compose -f docker-compose-build.yml build
-
 protoc:
-		protoc -I$$GOPATH/src --go_out=plugins=micro:$$GOPATH/src $$PWD/srv/proto/**/*.proto
+	protoc -I$$GOPATH/src --go_out=plugins=micro:$$GOPATH/src $$PWD/srv/proto/**/*.proto
 

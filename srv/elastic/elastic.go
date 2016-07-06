@@ -3,7 +3,7 @@ package elastic
 import (
 	"errors"
 	"fmt"
-	elasticsearch "github.com/Rakanixu/elasticsearch/srv/proto/elasticsearch"
+	proto "github.com/kazoup/elastic/srv/proto/elastic"
 	lib "github.com/mattbaird/elastigo/lib"
 )
 
@@ -22,14 +22,14 @@ func Init() {
 }
 
 // Create record
-func Create(cr *elasticsearch.CreateRequest) error {
+func Create(cr *proto.CreateRequest) error {
 	_, err := conn.Index(cr.Index, cr.Type, cr.Id, nil, cr.Data)
 
 	return err
 }
 
 // Read record
-func Read(rr *elasticsearch.ReadRequest) (string, error) {
+func Read(rr *proto.ReadRequest) (string, error) {
 	r, err := conn.Get(rr.Index, rr.Type, rr.Id, nil)
 	if err != nil {
 		return "", err
@@ -41,21 +41,21 @@ func Read(rr *elasticsearch.ReadRequest) (string, error) {
 }
 
 // Update record
-func Update(ur *elasticsearch.UpdateRequest) error {
+func Update(ur *proto.UpdateRequest) error {
 	_, err := conn.Index(ur.Index, ur.Type, ur.Id, nil, ur.Data)
 
 	return err
 }
 
 // Delete record
-func Delete(dr *elasticsearch.DeleteRequest) error {
+func Delete(dr *proto.DeleteRequest) error {
 	_, err := conn.Delete(dr.Index, dr.Type, dr.Id, nil)
 
 	return err
 }
 
 // Search ES index
-func Search(sr *elasticsearch.SearchRequest) (string, error) {
+func Search(sr *proto.SearchRequest) (string, error) {
 	if len(sr.Query) <= 0 {
 		sr.Query = "*"
 	}
@@ -71,7 +71,7 @@ func Search(sr *elasticsearch.SearchRequest) (string, error) {
 }
 
 // Query DSL ES
-func Query(sr *elasticsearch.QueryRequest) (string, error) {
+func Query(sr *proto.QueryRequest) (string, error) {
 	result, err := conn.Search(sr.Index, sr.Type, nil, sr.Query)
 
 	if err != nil {

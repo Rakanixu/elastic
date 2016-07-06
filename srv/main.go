@@ -1,18 +1,19 @@
 package main
 
 import (
-	"github.com/Rakanixu/elasticsearch/srv/elastic"
-	"github.com/Rakanixu/elasticsearch/srv/handler"
-	"github.com/micro/cli"
-	"github.com/micro/go-micro"
 	"log"
 	"strings"
+
+	"github.com/kazoup/elastic/srv/elastic"
+	"github.com/kazoup/elastic/srv/handler"
+	"github.com/micro/cli"
+	"github.com/micro/go-micro"
 )
 
 func main() {
 	// New Service
 	service := micro.NewService(
-		micro.Name("go.micro.srv.elasticsearch"),
+		micro.Name("go.micro.srv.elastic"),
 		micro.Version("latest"),
 		micro.Flags(
 			cli.StringFlag{
@@ -30,7 +31,7 @@ func main() {
 
 	// Register Handler
 	service.Server().Handle(
-		service.Server().NewHandler(new(handler.Elasticsearch)),
+		service.Server().NewHandler(new(handler.Elastic)),
 	)
 
 	// Initialise service

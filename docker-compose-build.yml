@@ -27,15 +27,15 @@ web:
   ports:
   - "8082:8082"
 
-elasticsearch-api:
-  container_name: elasticsearch-api
+elastic-api:
+  container_name: elastic-api
   command: --registry_address=registry:8500
   build: api
   links:
     - consul
 
-elasticsearch-srv:
-  container_name: elasticsearch-srv
+elastic-srv:
+  container_name: elastic-srv
   command: --registry_address=registry:8500 --elasticsearch_hosts=elasticsearch:9200
   build: srv
   links:
